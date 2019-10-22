@@ -35,6 +35,8 @@ class AlbumView: UIView {
   
   private var coverImageView: UIImageView!
   private var indicatorView: UIActivityIndicatorView!
+  private var valueObservation: NSKeyValueObservation!
+
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -60,6 +62,13 @@ class AlbumView: UIView {
     indicatorView.translatesAutoresizingMaskIntoConstraints = false
     indicatorView.activityIndicatorViewStyle = .whiteLarge
     indicatorView.startAnimating()
+    
+    valueObservation = coverImageView.observe(\.image, options: [.new]) { [unowned self] observed, change in
+      if change.newValue is UIImage {
+        self.indicatorView.stopAnimating()
+      }
+    }
+
     addSubview(indicatorView)
     
     NSLayoutConstraint.activate([
