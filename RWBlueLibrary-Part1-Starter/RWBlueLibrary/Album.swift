@@ -47,3 +47,16 @@ extension Album: CustomStringConvertible {
     " year: \(year)"
   }
 }
+
+typealias AlbumData = (title: String, value: String)
+
+extension Album {
+  var tableRepresentation: [AlbumData] {
+    return [
+      ("Artist", artist),
+      ("Album", title),
+      ("Genre", genre),
+      ("Year", year)
+    ]
+  }
+}
