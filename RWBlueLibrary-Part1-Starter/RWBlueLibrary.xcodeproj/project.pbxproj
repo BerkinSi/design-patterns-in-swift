@@ -12,6 +12,7 @@
 		94089E89235F2176000E4A25 /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94089E88235F2176000E4A25 /* LibraryAPI.swift */; };
 		94089E8B235F23C7000E4A25 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94089E8A235F23C7000E4A25 /* PersistencyManager.swift */; };
 		94089E8D235F392E000E4A25 /* HorizontalScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94089E8C235F392E000E4A25 /* HorizontalScrollerView.swift */; };
+		94089E90235F4616000E4A25 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94089E8F235F4616000E4A25 /* NotificationExtension.swift */; };
 		EDDF66161EBD28EF006123DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF66151EBD28EF006123DA /* AppDelegate.swift */; };
 		EDDF66181EBD28EF006123DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF66171EBD28EF006123DA /* ViewController.swift */; };
 		EDDF661B1EBD28EF006123DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDDF66191EBD28EF006123DA /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		94089E88235F2176000E4A25 /* LibraryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAPI.swift; sourceTree = "<group>"; };
 		94089E8A235F23C7000E4A25 /* PersistencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
 		94089E8C235F392E000E4A25 /* HorizontalScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollerView.swift; sourceTree = "<group>"; };
+		94089E8F235F4616000E4A25 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		EDDF66121EBD28EF006123DA /* RWBlueLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWBlueLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDDF66151EBD28EF006123DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDDF66171EBD28EF006123DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 			name = "View Controller";
 			sourceTree = "<group>";
 		};
+		94089E8E235F4605000E4A25 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				94089E8F235F4616000E4A25 /* NotificationExtension.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		EDDF66091EBD28EF006123DA = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 		EDDF66141EBD28EF006123DA /* RWBlueLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				94089E8E235F4605000E4A25 /* Extension */,
 				94089E02235A6941000E4A25 /* View Controller */,
 				94089E01235A6939000E4A25 /* View */,
 				94089E00235A6930000E4A25 /* Model */,
@@ -193,6 +204,7 @@
 				EDDF66181EBD28EF006123DA /* ViewController.swift in Sources */,
 				EDDF66371EBD2B8C006123DA /* HTTPClient.swift in Sources */,
 				94089E8D235F392E000E4A25 /* HorizontalScrollerView.swift in Sources */,
+				94089E90235F4616000E4A25 /* NotificationExtension.swift in Sources */,
 				94089E89235F2176000E4A25 /* LibraryAPI.swift in Sources */,
 				EDDF66161EBD28EF006123DA /* AppDelegate.swift in Sources */,
 				79F6FC431F14254E00E22ED5 /* AlbumView.swift in Sources */,
