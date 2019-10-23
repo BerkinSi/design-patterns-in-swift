@@ -57,6 +57,8 @@ To provide standalone classes(ie. decoupling) that can be reused, tested and are
 
 Cocoa implements the observer pattern in two ways: **Notifications** and **Key-Value Observing (KVO)**.
 
+**Observer Pattern using Notifications**
+
 Below, an example can be found that uses **NotificationCenter** that establishes communication and data transfer between LibraryAPI and AlbumView classes.
 
 First, notification classes name property is extended with static constant BLDownloadImage, adding a new Notification Name.
@@ -72,7 +74,29 @@ Meanwhile, (on the other side of the notification :) in LibraryAPI (remember fac
 
 downloadImage(with notification: Notification) function of consumes notification by getting triggered with observer, and using its userInfo property.
 
+**Observer pattern using KVO**
 
+Key-value observing provides a mechanism that allows objects to be notified of changes to specific properties of other objects. It is particularly useful for communication between model and controller layers in an application
+
+https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html
+
+variable of type NSKeyValueObservation is added to the class AlbumView.
+
+**  private var valueObservation: NSKeyValueObservation!**
+
+image view is added as an observer for the image property of the cover image. \.image is the key path expression that enables this mechanism.
+
+**valueObservation = coverImageView.observe(\.image, options: [.new]) { [unowned self] observed, change in
+  if change.newValue is UIImage {
+      self.indicatorView.stopAnimating()
+  }
+}**
+
+Key path expression form is **: \<type>.<property>.<subproperty>**
+
+The type can often be inferred by the compiler, but at least 1 property needs to be provided. In some cases, it might make sense to use properties of properties. In your case, the property name, image has been specified, while the type name UIImageView has been omitted.
+
+**Note:** Always remember to remove your observers when they're deinited, or else your app will crash when the subject tries to send messages to these non-existent observers! In this case the valueObservation will be deinited when the album view is, so the observing will stop then.
 
 
 
