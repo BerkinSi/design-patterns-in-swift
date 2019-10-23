@@ -1,7 +1,9 @@
 # design-patterns-in-swift
 
 All credits and thanks to raywenderlich.com and Lorenzo Boaro for the tutorial:
+
 https://www.raywenderlich.com/477-design-patterns-on-ios-using-swift-part-1
+
 https://www.raywenderlich.com/476-design-patterns-on-ios-using-swift-part-2-2
 
 **Sinlgeton Pattern (Creational)**
@@ -12,6 +14,7 @@ and **init** is marked as **private** to ensure there is only one instance of th
 
 
 **Facade Pattern (Structural)**
+
 The Facade design pattern provides a single interface to a complex subsystem. Instead of exposing the user to a set of classes and their APIs, you only expose one simple unified API.
 
 **private let persistencyManager = PersistencyManager()**
@@ -22,6 +25,7 @@ In other words, Library API class is used across the project while it uses Persi
 Reminder: There is no mechanism for developers to use PersistencyManager or HTTPClient classes. 
 
 **Decorator Pattern (Structural)**
+
 The Decorator pattern dynamically adds behaviors and responsibilities to an object without modifying its code. It’s an alternative to subclassing where you modify a class’s behavior by wrapping it with another object.
 
 Decorator pattern is being used in **Album Class**, with **Extension** mechanism of Swift. 
@@ -34,6 +38,7 @@ Delegation, is a mechanism in which one object acts on behalf of, or in coordina
 ViewController conforms to protocols of UITableview class to be able to serve it as both datasource and delegate. By doing so, ViewController class is decorated to work in coordination with UITableView class.
 
 **Adapter Pattern (Structural)**
+
 Apple is using Adapter pattern with protocols like UITableViewDelegate, UIScrollViewDelegate, NSCoding and NSCopying. As an example, with the NSCopying protocol, any class can provide a standard copy method.
 
 It basically is using protocols to make incompatible interfaces work together.
