@@ -6,7 +6,7 @@ https://www.raywenderlich.com/477-design-patterns-on-ios-using-swift-part-1
 
 https://www.raywenderlich.com/476-design-patterns-on-ios-using-swift-part-2-2
 
-**Sinlgeton Pattern (Creational)**
+**Singleton Pattern (Creational)**
 
 Library API class is implemented to be used as a Singleton Object.
 **Static constant** variable shared is added to class to make object accessible from outside,
