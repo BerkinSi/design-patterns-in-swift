@@ -13,6 +13,7 @@
 		94089E8B235F23C7000E4A25 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94089E8A235F23C7000E4A25 /* PersistencyManager.swift */; };
 		94089E8D235F392E000E4A25 /* HorizontalScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94089E8C235F392E000E4A25 /* HorizontalScrollerView.swift */; };
 		94089E90235F4616000E4A25 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94089E8F235F4616000E4A25 /* NotificationExtension.swift */; };
+		94089E9223602B2D000E4A25 /* albums.json in Resources */ = {isa = PBXBuildFile; fileRef = 94089E9123602B2D000E4A25 /* albums.json */; };
 		EDDF66161EBD28EF006123DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF66151EBD28EF006123DA /* AppDelegate.swift */; };
 		EDDF66181EBD28EF006123DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDDF66171EBD28EF006123DA /* ViewController.swift */; };
 		EDDF661B1EBD28EF006123DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDDF66191EBD28EF006123DA /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		94089E8A235F23C7000E4A25 /* PersistencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
 		94089E8C235F392E000E4A25 /* HorizontalScrollerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalScrollerView.swift; sourceTree = "<group>"; };
 		94089E8F235F4616000E4A25 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
+		94089E9123602B2D000E4A25 /* albums.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = albums.json; path = ../../albums.json; sourceTree = "<group>"; };
 		EDDF66121EBD28EF006123DA /* RWBlueLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWBlueLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDDF66151EBD28EF006123DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDDF66171EBD28EF006123DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 		EDDF66141EBD28EF006123DA /* RWBlueLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				94089E9123602B2D000E4A25 /* albums.json */,
 				94089E8E235F4605000E4A25 /* Extension */,
 				94089E02235A6941000E4A25 /* View Controller */,
 				94089E01235A6939000E4A25 /* View */,
@@ -191,6 +194,7 @@
 				EDDF66201EBD28EF006123DA /* LaunchScreen.storyboard in Resources */,
 				EDDF661D1EBD28EF006123DA /* Assets.xcassets in Resources */,
 				EDDF661B1EBD28EF006123DA /* Main.storyboard in Resources */,
+				94089E9223602B2D000E4A25 /* albums.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

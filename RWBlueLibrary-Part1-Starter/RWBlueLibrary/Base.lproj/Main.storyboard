@@ -13,7 +13,7 @@
         <!--Pop Music-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RWBlueLibrary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="RWBlueLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +98,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ecH-UF-3zO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gWc-if-paK" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="gWc-if-paK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7VU-PB-C67">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

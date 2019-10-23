@@ -30,7 +30,7 @@
 
 import Foundation
 
-struct Album {
+struct Album: Codable {
   let title : String
   let artist : String
   let genre : String
