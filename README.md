@@ -82,7 +82,7 @@ https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyVa
 
 variable of type NSKeyValueObservation is added to the class AlbumView.
 
-**  private var valueObservation: NSKeyValueObservation!**
+**private var valueObservation: NSKeyValueObservation!**
 
 image view is added as an observer for the image property of the cover image. \.image is the key path expression that enables this mechanism.
 
@@ -113,7 +113,7 @@ A private variable called cache is initiated in *PersistencyManager* which will 
 This url is being appended with file name to be used both for writing and reading, in save and load functions.
 
 
-**let url = cache.appendingPathComponent(filename)*
+**let url = cache.appendingPathComponent(filename)**
 
 Filename is retrieved by using coverUrl, which was passed to LibraryAPI with userInfo object of notification, from AlbumView class.
 
@@ -131,7 +131,7 @@ If the image is not there, LibraryApi asks for httpclient to download the image 
 
 **guard let data = UIImagePNGRepresentation(image) else {**
 
-**      return**
+**return**
 
 **}**
 
