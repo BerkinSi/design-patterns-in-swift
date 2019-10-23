@@ -57,18 +57,18 @@ To provide standalone classes(ie. decoupling) that can be reused, tested and are
 
 Cocoa implements the observer pattern in two ways: **Notifications** and **Key-Value Observing (KVO)**.
 
-Below, an example can be found that uses NotificationCenter that establishes communication and data transfer between LibraryAPI and AlbumView classes.
+Below, an example can be found that uses **NotificationCenter** that establishes communication and data transfer between LibraryAPI and AlbumView classes.
 
 First, notification classes name property is extended with static constant BLDownloadImage, adding a new Notification Name.
-*static let BLDownloadImage = Notification.Name("BLDownloadImageNotification")*
+**static let BLDownloadImage = Notification.Name("BLDownloadImageNotification")**
 
 Then in initializer of AlbumView class, a notification with BLDownloadImage name is posted to NotificationCenter, along with userInfo *containing coverImageView and coverUrl.*
 
-*NotificationCenter.default.post(name: .BLDownloadImage, object: self, userInfo: ["imageView": coverImageView, "coverUrl" : coverUrl])*
+**NotificationCenter.default.post(name: .BLDownloadImage, object: self, userInfo: ["imageView": coverImageView, "coverUrl" : coverUrl])**
 
 Meanwhile, (on the other side of the notification :) in LibraryAPI (remember facade) an observer is added with a selector function which will be triggered when a notification with .BLDownloadImage name is posted.
 
-*NotificationCenter.default.addObserver(self, selector: #selector(downloadImage(with:)), name: .BLDownloadImage, object: nil)*
+**NotificationCenter.default.addObserver(self, selector: #selector(downloadImage(with:)), name: .BLDownloadImage, object: nil)**
 
 downloadImage(with notification: Notification) function of consumes notification by getting triggered with observer, and using its userInfo property.
 
@@ -80,38 +80,35 @@ downloadImage(with notification: Notification) function of consumes notification
 
 A private variable called cache is initiated in *PersistencyManager* which will return URL for caches directory.
 
-*private var cache: URL {
+**private var cache: URL {**
 
-return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+**return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]**
 
-}*
+**}**
 
 This url is being appended with file name to be used both for writing and reading, in save and load functions.
 
 
-*let url = cache.appendingPathComponent(filename)*
+**let url = cache.appendingPathComponent(filename)*
 
 Filename is retrieved by using coverUrl, which was passed to LibraryAPI with userInfo object of notification, from AlbumView class.
 
 To ensure not to download image if it is cached before, LibraryAPI first tries Persistency Managers getImage method, which checks caches directory.
 
-*
-guard let data = try? Data(contentsOf: url) else {
+**guard let data = try? Data(contentsOf: url) else {**
 
-return nil
+**return nil**
 
-}
+**}**
 
-return UIImage(data: data)
-*
+**return UIImage(data: data)**
 
 If the image is not there, LibraryApi asks for httpclient to download the image and if download is succesful, LibraryAPI saves the image to cache, again using PersistencyManager's save method.
 
-*
-guard let data = UIImagePNGRepresentation(image) else {
+**guard let data = UIImagePNGRepresentation(image) else {**
 
-      return
+**      return**
 
-}
+**}**
 
-try? data.write(to: url)*
+**try? data.write(to: url)**
