@@ -72,7 +72,7 @@ Meanwhile, (on the other side of the notification :) in LibraryAPI (remember fac
 
 **NotificationCenter.default.addObserver(self, selector: #selector(downloadImage(with:)), name: .BLDownloadImage, object: nil)**
 
-downloadImage(with notification: Notification) function of consumes notification by getting triggered with observer, and using its userInfo property.
+downloadImage(with notification: Notification) function of LibraryAPI consumes notification by getting triggered with observer, and using its userInfo property.
 
 **Observer pattern using KVO**
 
