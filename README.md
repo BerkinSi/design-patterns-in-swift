@@ -98,6 +98,82 @@ The type can often be inferred by the compiler, but at least 1 property needs to
 
 **Note:** Always remember to remove your observers when they're deinited, or else your app will crash when the subject tries to send messages to these non-existent observers! In this case the valueObservation will be deinited when the album view is, so the observing will stop then.
 
+**Memento Pattern**
+
+The memento pattern captures and externalizes an object's internal state. In other words, it saves your stuff somewhere. Later on, this externalized state can be restored without violating encapsulation; that is, private data remains private.
+
+To activate state restoration in the app, Navigation Controller's Restoration ID is set to NavigationController from storyboard and Pop Music Scene's Restoration ID is set to ViewController.
+
+Setting Restoration IDs tell iOS that you're interested in restoring state for those view controllers when the app restarts.
+
+Below code is added to AppDelegate.
+
+**func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
+  return true
+}
+
+func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
+  return true
+}**
+
+**In ViewController, following functions are overriden as;
+
+override func encodeRestorableState(with coder: NSCoder) {
+  coder.encode(currentAlbumIndex, forKey: Constants.IndexRestorationKey)
+  super.encodeRestorableState(with: coder)
+}
+
+override func decodeRestorableState(with coder: NSCoder) {
+  super.decodeRestorableState(with: coder)
+  currentAlbumIndex = coder.decodeInteger(forKey: Constants.IndexRestorationKey)
+  showDataForAlbum(at: currentAlbumIndex)
+  horizontalScrollerView.reload()
+}**
+
+**To Archivie And Serialize**
+
+Album class is declared as Codable. 
+**struct Album: Codable** 
+
+After declaring, to actually encode the objects:
+
+following property is added to PersistencyManager, to get url for document directory. 
+
+**private var documents: URL {
+  return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+}**
+
+**private enum Filenames {
+  static let Albums = "albums.json"
+}**
+
+and the method below is implemented, which appends the url with name of the json file's name (albums.json) ,
+creates an instance of JSONEncoder (encoder) and uses encodes and writes the encodedData to appended url.
+
+**func saveAlbums() {
+  let url = documents.appendingPathComponent(Filenames.Albums)
+  let encoder = JSONEncoder()
+  guard let encodedData = try? encoder.encode(albums) else {
+    return
+  }
+  try? encodedData.write(to: url)
+}**
+
+To use the encoded data in documents, following snippet is added to persistency manager's init function, which appends the documentsUrl with filename(the same appending operation in save file), retrieves the data from appended url and finally decodes retrieved data.
+
+**let savedURL = documents.appendingPathComponent(Filenames.Albums)
+var data = try? Data(contentsOf: savedURL)
+if data == nil, let bundleURL = Bundle.main.url(forResource: Filenames.Albums, withExtension: nil) {
+  data = try? Data(contentsOf: bundleURL)
+}**
+
+**if let albumData = data,
+  let decodedAlbums = try? JSONDecoder().decode([Album].self, from: albumData) {
+  albums = decodedAlbums
+  saveAlbums()
+}**
+
+
 
 
 **Out of Context Caching**
